@@ -1,0 +1,12 @@
+const path = require("path");
+
+module.exports = {
+  config: path.resolve(__dirname, "database", "config", "config-database.js"),
+  "migrations-path": path.resolve(__dirname, "database", "migrations"),
+};
+
+//Lista de comandos
+//Criar banco: npx sequelize db:create
+//Criar tabela: npx sequelize migration:create --name=nome
+//Executar Migrate: npx sequelize db:migrate
+//Voltar ultimo Migrate: npx sequelize db:migrate:undo
