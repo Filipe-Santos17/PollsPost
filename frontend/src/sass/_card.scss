@@ -1,0 +1,25 @@
+.card {
+  @include flex(normal, center, 0, column);
+  padding: 3.2rem 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: $white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all #000;
+
+  &:hover {
+    border: 1px solid #000;
+  }
+
+  h3 {
+    @include styleText(500, 2rem, 2rem, normal, $black);
+    margin-bottom: 1.6rem;
+    text-align: center;
+  }
+
+  @media (min-width: 1310px) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
