@@ -1,0 +1,31 @@
+.card-choice{
+  padding: 3.2rem 0;
+  width: 100%;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #000;
+
+  h3{
+    @include styleText(500, 2rem, 2rem, normal, $black);
+    margin-bottom: .5rem;
+    text-transform: capitalize;
+  }
+
+  form{
+    margin-top: 1rem;
+
+    div{
+      @include flex(normal, normal, .5rem);
+      margin-bottom: .5rem;
+    }
+
+    .buttons-form{
+      margin-top: 1rem;
+      
+      button{
+        width: 10rem;
+        border-radius: .25rem;
+      }
+    }
+  }
+}

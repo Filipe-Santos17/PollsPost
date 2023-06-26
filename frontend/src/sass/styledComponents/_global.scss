@@ -39,3 +39,21 @@ body{
     color: $primary;
   }
 }
+
+//error-message
+.error-message {
+  @include styleText(500, .75rem, .9375rem, normal, $red);
+  margin: .25rem 0;
+}
+
+
+.container{
+  margin-inline: auto;
+  max-width: 60vw;
+  margin-top: 1rem;
+}
+
+a{
+  text-decoration: none;
+  color: $black;
+}

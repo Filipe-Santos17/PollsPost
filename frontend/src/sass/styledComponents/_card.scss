@@ -1,0 +1,48 @@
+.grid-cards{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+
+  @include d(xl3){
+    grid-template-columns: repeat(4,1fr);
+  }
+
+  @include d(lg){
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  @include d(lg){
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+.card {
+  @include flex(normal, center, 0, column);
+  padding: 3.2rem 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: $white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all #0004;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $black;
+  }
+
+  h3 {
+    @include styleText(500, 1.5rem, 2rem, normal, $black);
+    margin-bottom: 1.6rem;
+    text-align: center;
+  }
+
+  p{
+    @include styleText(400, 1rem, 1rem, normal, $black);
+  }
+
+  @media (min-width: 1310px) {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

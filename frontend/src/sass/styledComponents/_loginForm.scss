@@ -1,0 +1,82 @@
+.login-form-page {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow-y: hidden;
+
+  .section-image {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: $primary;
+    @include flex(center, center);
+
+    h3{
+      @include styleText(700, 5rem, 1.875rem, -.02em, $white);
+    }
+  }
+
+  .section-form {
+    background-color: $gray-60;
+    @include flex(center, center);
+
+    form {
+      height: max-content;
+      width: 428px;
+      background-color: $white;
+      box-shadow: 0px, 24px, 32px, #d2d7dd40;
+      border-width: 1px;
+      border-color: $gray-60;
+      border-radius: 0.5rem;
+      flex-direction: column;
+      gap: 3rem;
+      padding: 2rem;
+      display: flex;
+
+      .title-box {
+        @include flex(normal, flex-start, .5rem, column);
+
+        h1 {
+          @include styleText(400, 1.5rem, 1.875rem, -.02em, #000112);
+        }
+
+        p {
+          @include styleText(400, 1rem, 1.5rem, -.02em, #364b5a);
+        }
+      }
+
+      .inputs-form {
+        @include flex(normal, flex-start, 1.5rem, column);
+
+        .box-links{
+          @include flex(normal, flex-start, .5rem, column);
+        }
+
+        .forget-password {
+          @include styleText(400, .75rem, 1.25rem, -.05em, #50626f);
+          width: 100%;
+          outline: none;
+
+          &:hover, &:focus{
+            text-decoration: underline;
+          }
+        }
+      }
+      
+      button{
+        width: 100%;
+        border-radius: .375rem;
+      }
+    }
+  }
+
+  @include d(lg) {
+    grid-template-columns: 1fr;
+  
+    .section-image {
+      display: none;
+    }
+  }
+}
+

@@ -1,11 +1,15 @@
-export default function Card() {
+import { itemCard } from "../helpers/Types"
+import { Link } from "react-router-dom"
+
+export default function Card({ title, startDate, dataId }: itemCard) {
   return (
-    <section className="card">
-      <h3>{title}</h3>
-      <div>
-        <p>Inicio: {startDate}</p>
-        <p>Término: {endDate}</p>
-      </div>
-    </section>
+    <Link to={`view/${dataId}`}>
+      <section className="card" id={`${dataId}`}>
+        <h3>{title}</h3>
+        <div>
+          <p>Inicio: {startDate}</p>
+        </div>
+      </section>
+    </Link>
   )
 }

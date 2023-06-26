@@ -1,0 +1,29 @@
+.box-input {
+  @include flex(normal, flex-start, .5rem, column);
+  width: 100%;
+
+  .label-form {
+    @include styleText(700, .75rem, .9375rem, normal, $gray-40);
+  }
+
+  .input-form {
+    background: $white;
+    border: 1px solid rgba($color: $gray-40, $alpha: .4);
+    border-radius: 4px;
+    height: 2.5rem;
+    width: 100%;
+    padding: .75rem;
+    @include styleText(500, .8125rem, 1.4375rem, normal, $black);
+    outline: none;
+
+    &::placeholder {
+      @include styleText(500, .8125rem, 1.4375rem, normal, $black);
+      mix-blend-mode: normal;
+      opacity: 0.25;
+    }
+
+    &:hover, &:focus{
+      border-color: $gray-30;
+    }
+  }
+}

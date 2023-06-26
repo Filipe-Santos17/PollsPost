@@ -1,4 +1,9 @@
 @import "./variables";
 @import "./mixins";
-@import "./global";
-@import "./header";
+@import "./resize";
+@import "./styledComponents/global";
+@import "./styledComponents/header";
+@import "./styledComponents/card";
+@import "./styledComponents/inputBox";
+@import "./styledComponents/loginForm";
+@import "./styledComponents/cardChoice";
