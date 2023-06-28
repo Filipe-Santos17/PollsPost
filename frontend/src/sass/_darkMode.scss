@@ -1,0 +1,50 @@
+.dark {
+  header {
+    background-color: $gray-20;
+    border-color: $gray-30;
+
+    h1 {
+      color: $white;
+    }
+
+    .container-user {
+      div {
+        border-color: $white;
+      }
+
+      .UserOptions{
+        background: $gray-20;
+        border-color: $gray-30;
+
+        ul li{
+          color: $white;
+
+          &:hover{
+            background: $gray-30;
+          }
+        }
+      }
+    }
+  }
+
+  #root{
+    background-color: $gray-10;
+    color: $gray-40;
+  }
+
+  .card,.card-choice{
+    background-color: $gray-20;
+
+    h3,p{
+      color: $white;
+    }
+  }
+
+  .modal-new-poll{
+    background-color: $gray-20;
+
+    .modal-title{
+      color: $white;
+    }
+  }
+}

@@ -23,7 +23,8 @@ export type dataPoll = {
 export type itemCard = {
   title: string,
   startDate: string,
-  dataId: number
+  dataId: number,
+  setAllData?: React.Dispatch<React.SetStateAction<dataPoll[] | null>>,
 }
 
 export type userPoll = {

@@ -29,7 +29,7 @@ export default function Main() {
     }
 
     getDataHome()
-  }, [])
+  }, [data])
 
   if(erro === true){
     return( 
@@ -49,7 +49,7 @@ export default function Main() {
         {
           data.length ?
             data.map(item => (
-              <Card key={item.id} title={item.name} startDate={item.createdAt} dataId={item.id} />
+              <Card key={item.id} title={item.name} startDate={item.createdAt} dataId={item.id}/>
             ))
             : (
               <p>Sem Enquentes Existentes</p>

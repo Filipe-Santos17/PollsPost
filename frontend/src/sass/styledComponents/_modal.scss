@@ -1,0 +1,51 @@
+.container-modal{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: $gray-10, $alpha: .3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  z-index: 999;
+
+  .modal-new-poll{
+    width: 480px;
+    height: max-content;
+    border-radius: .375rem;
+    background: $white;
+    padding: 2rem;
+
+    .modal-title{
+      @include styleText(700, 1.5rem, 1.5rem, normal, $black);
+      margin-bottom: 1.5rem;
+    }
+
+    .box-todos-column{
+      margin: 1.5rem 0 .75rem;
+    }
+
+    .board-container{
+      @include flex(center, center, 1rem);
+      width: 100%;
+    }
+
+    .modal-new-board-box-buttons{
+      @include flex(center, center, 1.5rem, column);
+      width: 100%;
+
+      button{
+        width: 100%;
+      }
+    }
+  }
+
+  .modal-text{
+    @include styleText(500, .8125rem, 1.4375rem, normal, $gray-40);
+  }
+
+  .modal-legend-tasks{
+    @include styleText(700, .75rem, .9375rem, normal, $gray-40);
+  }
+}
+

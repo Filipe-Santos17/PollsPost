@@ -107,3 +107,30 @@ export function createPoll(userId: number, value: object) {
     },
   }
 }
+
+export function editPoll(userId: number, value: object) {
+  return {
+    url: `${url}polls/${userId}/create`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "authorizarion": localStorage.getItem('token'),
+      },
+      body: JSON.stringify(value)
+    },
+  }
+}
+
+export function deletePoll(pollId: number) {
+  return {
+    url: `${url}polls/${pollId}/delete`,
+    options: {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "authorizarion": localStorage.getItem('token'),
+      },
+    },
+  }
+}

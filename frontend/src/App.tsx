@@ -16,17 +16,27 @@ function App() {
   return (
     <BrowserRouter>
       <UserStorage>
-        <Routes>
-          <Route path='/' element={<Home setModal={setModalCreate} />} />
-          <Route path='/login'>
-            <Route index element={<LoginUser />} />
-            <Route path='create/' element={<CreateUser />} />
-            <Route path='forget/' element={<ForgetUser />} />
-          </Route>
-          <Route path='view/:id' element={<ProtectedRouter> <ViewPoll /> </ProtectedRouter>} />
-          <Route path='/user' element={<ProtectedRouter> <UserHome/> </ProtectedRouter>} />
-        </Routes>
-        {modalCreate && <CreateNewPoll setModal={setModalCreate}/>}
+        <>
+          <Routes>
+            <Route path='/' element={<Home setModal={setModalCreate} />} />
+            <Route path='/login'>
+              <Route index element={<LoginUser />} />
+              <Route path='create/' element={<CreateUser />} />
+              <Route path='forget/' element={<ForgetUser />} />
+            </Route>
+            <Route path='view/:id' element={
+              <ProtectedRouter>
+                <ViewPoll setModal={setModalCreate} />
+              </ProtectedRouter>
+            } />
+            <Route path='/user' element={
+              <ProtectedRouter>
+                <UserHome setModal={setModalCreate}/>
+              </ProtectedRouter>
+            } />
+          </Routes>
+          {modalCreate && <CreateNewPoll setModal={setModalCreate} />}
+        </>
       </UserStorage>
     </BrowserRouter>
   )

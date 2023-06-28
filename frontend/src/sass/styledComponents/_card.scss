@@ -45,4 +45,10 @@
       transform: scale(1.05);
     }
   }
+
+  .user-card-options{
+    @include flex(space-between,center);
+    width: 80%;
+    margin: 1rem auto 0;
+  }
 }

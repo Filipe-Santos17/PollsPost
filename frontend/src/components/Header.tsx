@@ -1,14 +1,30 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "./Context";
 import Button from "./Button"
 import UserLogo from "../assets/userLogo"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import useThemeColor from "../hooks/useThemeColor";
 
 export default function Header({ setModal }: { setModal: React.Dispatch<React.SetStateAction<boolean>> }) {
   const { login } = useContext(UserContext) as { login: boolean };
+  const [showUserOp, setShowUserOp] = useState<boolean>(false)
+  const [theme, setTheme] = useThemeColor()
+  const navigate = useNavigate()
+
+  function handleThemePage() {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
 
   function handleModal() {
     setModal(true)
+  }
+
+  function handleShowUserOptions() {
+    setShowUserOp(!showUserOp)
+  }
+
+  function handleToUserPage(){
+    navigate('/user')
   }
 
   return (
@@ -20,8 +36,20 @@ export default function Header({ setModal }: { setModal: React.Dispatch<React.Se
         {login && (
           <>
             <Button content="Create New Poll" handleClickButton={handleModal} />
-            <div>
+            <div onClick={handleShowUserOptions}>
               <UserLogo />
+              {showUserOp && (
+                <section className="UserOptions">
+                  <ul>
+                    <li onClick={handleToUserPage}>
+                      Meus Pools
+                    </li>
+                    <li onClick={handleThemePage}>
+                      Mudar Tema: {theme} 
+                    </li>
+                  </ul>
+                </section>
+              )}
             </div>
           </>
         )}
