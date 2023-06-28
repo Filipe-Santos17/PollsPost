@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import Option from "../components/user/Option";
 
-export default function ViewPoll() {
+export default function ViewPoll({setModal} : {setModal: React.Dispatch<React.SetStateAction<boolean>>}) {
   const [dataPoll, setDataPoll] = useState<object[] | null>(null)
   const { pathname } = useLocation();
   const idPoll = +pathname.replace('/view/', '')
@@ -40,7 +40,7 @@ export default function ViewPoll() {
 
   return (
     <>
-      <Header />
+      <Header setModal={setModal} />
       <section className="container">
         <div className="card-choice">
           <h3>{dataPoll.name}</h3>
@@ -64,7 +64,7 @@ export default function ViewPoll() {
               <Link to={"/"}>
                 <Button btnStyle="secondary" content="Voltar" />
               </Link>
-              <Button content="Responder" typeBtn="Submit" />
+              <Button content="Responder" typeBtn="submit" />
             </div>
           </form>
         </div>

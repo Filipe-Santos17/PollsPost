@@ -6,7 +6,7 @@ export default function InputBox({ labelName, idName, typeInput, value, onchange
     <div className='box-input'>
       <label className="label-form" htmlFor={idName}>{labelName}</label>
       <input className="input-form" type={typeInput} id={idName} name={idName} value={value} onChange={onchange} onBlur={onBlur} placeholder={placeholderText} autoFocus={autoFocus}/>
-      {<ErroMsg erro={error}/>}
+      {error && <ErroMsg erro={error}/>}
     </div>
   )
 }

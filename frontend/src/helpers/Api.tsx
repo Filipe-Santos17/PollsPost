@@ -1,7 +1,7 @@
 const url = 'http://localhost:8080/api/'
 
 /*Rotas de Login */
-export function loginUser(data: object){
+export function loginUser(data: object) {
   return {
     url: `${url}user/login`,
     options: {
@@ -14,8 +14,8 @@ export function loginUser(data: object){
   }
 }
 
-export function createUser(data: object){
-  return{
+export function createUser(data: object) {
+  return {
     url: `${url}user/create`,
     options: {
       method: "POST",
@@ -27,8 +27,8 @@ export function createUser(data: object){
   }
 }
 
-export function changePass(data: object){
-  return{
+export function changePass(data: object) {
+  return {
     url: `${url}user/forget-password`,
     options: {
       method: "POST",
@@ -40,15 +40,15 @@ export function changePass(data: object){
   }
 }
 
-export function validUser(data: object){
-  return{
+export function validUser(data: string) {
+  return {
     url: `${url}user/valid-token`,
     options: {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "authorizarion": `${data}`
       },
-      body: JSON.stringify(data)
     },
   }
 }
@@ -90,6 +90,20 @@ export function getOnePoll(pollId: number) {
         "Content-Type": "application/json",
         "authorizarion": localStorage.getItem('token'),
       },
+    },
+  }
+}
+
+export function createPoll(userId: number, value: object) {
+  return {
+    url: `${url}polls/${userId}/create`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "authorizarion": localStorage.getItem('token'),
+      },
+      body: JSON.stringify(value)
     },
   }
 }

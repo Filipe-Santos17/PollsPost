@@ -1,4 +1,4 @@
-import { FormEvent } from "react"
+import { FormEvent, useEffect } from "react"
 import useForm from "../hooks/useForm"
 import InputBox from "../components/InputBox"
 import LoginBackground from "../components/login/LoginBackground"
@@ -13,6 +13,10 @@ export default function LoginUser() {
   const passwordForm = useForm('password')
   const { load, erro, request } = useFetch()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    window.document.title = 'Login Enquente'
+  },[])
 
   async function handleSubmitForm(e: FormEvent) {
     e.preventDefault()
@@ -52,7 +56,7 @@ export default function LoginUser() {
               <Link to="create/" className="forget-password">Não possuo cadastro</Link>
             </div>
           </div>
-          {load ? <Button content="Carregando..." isDisabled={true} /> : <Button content="Entrar" type="submit" />}
+          {load ? <Button content="Carregando..." isDisabled={true} /> : <Button content="Entrar" typeBtn="submit" />}
         </form>
       </section>
     </section>

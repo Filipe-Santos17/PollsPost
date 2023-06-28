@@ -25,3 +25,20 @@ export type itemCard = {
   startDate: string,
   dataId: number
 }
+
+export type userPoll = {
+  id: number,
+  name: string,
+  email: number,
+  updatedAt: string,
+  createdAt: string,
+}
+
+export type createNewPoll = {
+  name: string,
+  option_one: string,
+  option_two: string,
+  option_three?: string,
+  option_four?: string,
+  option_five?: string,
+}
