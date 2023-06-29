@@ -47,7 +47,7 @@ export default function ForgetUser() {
                 <Link to="/login/create" className="forget-password">Não possuo cadastro</Link>
               </div>
             </div>
-            {load ? <Button content="Carregando..." isDisabled={true} /> : <Button content="Enviar" type="submit" />}
+            {load ? <Button content="Carregando..." isDisabled={true} /> : <Button content="Enviar" typeBtn="submit" />}
           </form>
         </section>
         :

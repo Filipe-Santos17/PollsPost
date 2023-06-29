@@ -9,6 +9,7 @@ import { UserStorage } from './components/Context'
 import ProtectedRouter from './auth/protectedRouter'
 import CreateNewPoll from './components/modais/CreateNewPoll'
 import UserHome from './pages/UserHome'
+import ViewDataPoll from './pages/ViewDataPoll'
 
 function App() {
   const [modalCreate, setModalCreate] = useState<boolean>(false)
@@ -18,7 +19,7 @@ function App() {
       <UserStorage>
         <>
           <Routes>
-            <Route path='/' element={<Home setModal={setModalCreate} />} />
+            <Route path='/' element={<Home setModal={setModalCreate}/>} />
             <Route path='/login'>
               <Route index element={<LoginUser />} />
               <Route path='create/' element={<CreateUser />} />
@@ -31,9 +32,14 @@ function App() {
             } />
             <Route path='/user' element={
               <ProtectedRouter>
-                <UserHome setModal={setModalCreate}/>
+                <UserHome setModal={setModalCreate} />
               </ProtectedRouter>
             } />
+            <Route path='/view-data/:id' element={
+              <ProtectedRouter>
+                <ViewDataPoll setModal={setModalCreate}/>
+              </ProtectedRouter>
+            }/>
           </Routes>
           {modalCreate && <CreateNewPoll setModal={setModalCreate} />}
         </>

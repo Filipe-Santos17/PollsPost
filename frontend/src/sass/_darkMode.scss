@@ -47,4 +47,18 @@
       color: $white;
     }
   }
+
+  .login-form-page {
+    .section-form{
+      background-color: $gray-10;
+
+      form{
+        background-color: $gray-20;
+
+        h1,p,.forget-password{
+          color: $white;
+        }
+      }
+    }
+  }
 }

@@ -51,7 +51,7 @@ export default function CreateUser() {
             <InputBox labelName="Senha" idName="password" typeInput="password" placeholderText="Insira sua senha " {...passwordForm}/>
             {erro && <ErroMsg erro={erro}/>}
           </div>
-          {load ? <Button content="Carregando..." disabled/> : <Button content="Enviar" type="submit"/> }
+          {load ? <Button content="Carregando..." isDisabled={true}/> : <Button content="Enviar" typeBtn="submit"/> }
         </form>
       </section>
     </section>

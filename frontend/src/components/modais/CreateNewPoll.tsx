@@ -15,6 +15,8 @@ export default function CreateNewPoll({ setModal }: { setModal: React.Dispatch<R
   const { request } = useFetch()
   const { dados } = useContext(UserContext) as { dados: userPoll }
   const inputsOptions = useRef<HTMLInputElement[]>([])
+  const { setReload, reload } = useContext(UserContext) as { reload: number, setReload: React.Dispatch<React.SetStateAction<number>> }
+
 
   //Fecha o Modal se houver clique externo
   function handleClickOutside(e: Event) {
@@ -82,7 +84,7 @@ export default function CreateNewPoll({ setModal }: { setModal: React.Dispatch<R
       if ((await response).status == 201) {
         if(json.status === "ok"){
           setModal(false)
-          //URL PRA PUXAR
+          setReload(reload + 1)
         }
       }
     }

@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getAllData } from "../helpers/Api"
 import { dataPoll } from "../helpers/Types"
 import Card from "./Card"
+import { UserContext } from "./Context"
 
 export default function Main() {
   const [data, setData] = useState<dataPoll[] | null>(null)
   const [erro, setErro] = useState<boolean>(false)
+  const { reload } = useContext(UserContext) as { reload: number }
 
   useEffect(() => {
     async function getDataHome() {
@@ -29,10 +31,10 @@ export default function Main() {
     }
 
     getDataHome()
-  }, [data])
+  }, [reload])
 
-  if(erro === true){
-    return( 
+  if (erro === true) {
+    return (
       <div>
         <p>Falha na Comunicação com Servidor</p>
       </div>
@@ -49,7 +51,7 @@ export default function Main() {
         {
           data.length ?
             data.map(item => (
-              <Card key={item.id} title={item.name} startDate={item.createdAt} dataId={item.id}/>
+              <Card key={item.id} title={item.name} startDate={item.createdAt} dataId={item.id} />
             ))
             : (
               <p>Sem Enquentes Existentes</p>

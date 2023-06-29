@@ -3,10 +3,13 @@ import { useLocation, useNavigate } from "react-router-dom"
 import Button from "./Button";
 import { deletePoll } from "../helpers/Api";
 import useFetch from "../hooks/useFetch";
+import { useContext } from "react";
+import { UserContext } from "./Context";
 
-export default function Card({ title, startDate, dataId, setAllData}: itemCard) {
+export default function Card({ title, startDate, dataId, setAllData }: itemCard) {
   const navigate = useNavigate()
   const { request } = useFetch()
+  const { setReload, reload } = useContext(UserContext) as { reload: number, setReload: React.Dispatch<React.SetStateAction<number>> }
 
   const dia = new Date(startDate)
   const dataDia = `${dia.getDate()}/${dia.getMonth()}/${dia.getFullYear()}`
@@ -29,10 +32,10 @@ export default function Card({ title, startDate, dataId, setAllData}: itemCard) 
     const { url, options } = deletePoll(dataId)
     const { json, response } = await request(url, options)
 
-    if((await response).status === 200){
-      if(json.status === "ok"){
-        if(setAllData){
-          setAllData(null)
+    if ((await response).status === 200) {
+      if (json.status === "ok") {
+        if (setAllData) {
+          setReload(reload + 1)
         }
       }
     }

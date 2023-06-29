@@ -43,3 +43,14 @@ export type createNewPoll = {
   option_four?: string,
   option_five?: string,
 }
+
+export type optionsPoll = {
+  createdAt: string,
+  id: number,
+  name: string,
+  polls: [
+    option_one: string,
+  ],
+  updatedAt: string,
+  user_id: number,
+}

@@ -108,11 +108,11 @@ export function createPoll(userId: number, value: object) {
   }
 }
 
-export function editPoll(userId: number, value: object) {
+export function editPoll(userId: number, pollId: number, value: object) {
   return {
-    url: `${url}polls/${userId}/create`,
+    url: `${url}polls/${userId}/${pollId}/edit`,
     options: {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "authorizarion": localStorage.getItem('token'),
@@ -127,6 +127,34 @@ export function deletePoll(pollId: number) {
     url: `${url}polls/${pollId}/delete`,
     options: {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "authorizarion": localStorage.getItem('token'),
+      },
+    },
+  }
+}
+
+/* Rotas de Answers */
+export function answerPoll(pollId: number, userId: number, option_resp: number) {
+  return {
+    url: `${url}polls/${userId}/${pollId}/answer`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "authorizarion": localStorage.getItem('token'),
+      },
+      body: JSON.stringify({ option_resp })
+    },
+  }
+}
+
+export function getDataAnswerPoll(pollId: number) {
+  return {
+    url: `${url}polls/${pollId}/get-resp`,
+    options: {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         "authorizarion": localStorage.getItem('token'),

@@ -8,6 +8,7 @@ export function UserStorage({ children }: { children: ReactElement }) {
   const [login, setLogin] = useState<boolean | null>(null);
   const [loading, setLoading] = useState<boolean | string>(false);
   const [error, setError] = useState<boolean | string>(false);
+  const [reload, setReload] = useState<number>(0)
 
   const userLogout = useCallback(() => {
     setDados({});
@@ -70,6 +71,6 @@ export function UserStorage({ children }: { children: ReactElement }) {
   }
 
   return (
-    <UserContext.Provider value={{ dados, login }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ dados, login, userLogout, reload, setReload }}>{children}</UserContext.Provider>
   )
 }

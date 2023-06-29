@@ -61,7 +61,6 @@ body {
   margin: .25rem 0;
 }
 
-
 .container {
   margin-inline: auto;
   max-width: 60vw;
@@ -71,4 +70,12 @@ body {
 a {
   text-decoration: none;
   color: $black;
+}
+
+.no-polls{
+  @include styleText(700, 1.5rem, 1.5rem, normal, $white);
+  grid-column: span 3 / span 3;
+  width: 100%;
+  text-align: center;
+  padding-top: 3rem;
 }

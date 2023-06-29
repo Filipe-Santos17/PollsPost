@@ -8,7 +8,7 @@ import Header from "../components/Header"
 export default function UserHome({setModal} : {setModal: React.Dispatch<React.SetStateAction<boolean>>}) {
   const [data, setData] = useState<dataPoll[] | null>(null)
   const [erro, setErro] = useState<boolean>(false)
-  const { dados } = useContext(UserContext) as { dados: userPoll }
+  const { dados, reload } = useContext(UserContext) as { dados: userPoll, reload: number }
 
   useEffect(() => {
     async function getDataHome() {
@@ -29,7 +29,7 @@ export default function UserHome({setModal} : {setModal: React.Dispatch<React.Se
     }
 
     getDataHome()
-  }, [dados.id, data])
+  }, [dados.id, reload])
 
   useEffect(() => {
     window.document.title = `${dados.name} | Home`
@@ -58,7 +58,7 @@ export default function UserHome({setModal} : {setModal: React.Dispatch<React.Se
                 <Card key={item.id} title={item.name} startDate={item.createdAt} dataId={item.id} setAllData={setData}/>
               ))
               : (
-                <p>Sem Enquentes Existentes</p>
+                <p className="no-polls">Sem Enquentes Existentes</p>
               )
           }
         </div>

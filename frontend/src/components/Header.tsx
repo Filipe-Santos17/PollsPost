@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import useThemeColor from "../hooks/useThemeColor";
 
 export default function Header({ setModal }: { setModal: React.Dispatch<React.SetStateAction<boolean>> }) {
-  const { login } = useContext(UserContext) as { login: boolean };
+  const { login, userLogout } = useContext(UserContext) as { login: boolean, userLogout: () => void };
   const [showUserOp, setShowUserOp] = useState<boolean>(false)
   const [theme, setTheme] = useThemeColor()
   const navigate = useNavigate()
@@ -25,6 +25,11 @@ export default function Header({ setModal }: { setModal: React.Dispatch<React.Se
 
   function handleToUserPage(){
     navigate('/user')
+  }
+
+  function handleUserLogout(){
+    userLogout()
+    window.location.reload()
   }
 
   return (
@@ -46,6 +51,9 @@ export default function Header({ setModal }: { setModal: React.Dispatch<React.Se
                     </li>
                     <li onClick={handleThemePage}>
                       Mudar Tema: {theme} 
+                    </li>
+                    <li onClick={handleUserLogout}>
+                      Logout/Sair 
                     </li>
                   </ul>
                 </section>
