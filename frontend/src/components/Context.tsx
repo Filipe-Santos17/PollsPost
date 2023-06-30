@@ -38,6 +38,7 @@ export function UserStorage({ children }: { children: ReactElement }) {
 
           if (data.status === "ok") {
             setDados(data.user)
+            console.log(data.user)
             setLogin(true)
           }
         } else {
